@@ -10,6 +10,8 @@ import pl.coderslab.dao.PublisherDao;
 import pl.coderslab.model.Author;
 import pl.coderslab.model.Book;
 import pl.coderslab.model.Publisher;
+import pl.coderslab.repository.BookRepository;
+
 import java.util.List;
 
 @Controller
@@ -19,6 +21,7 @@ public class BookController {
     private final BookDao bookDao;
     private final PublisherDao publisherdao;
     private final AuthorDao authorDao;
+    private final BookRepository bookRepository;
 
 
     @RequestMapping("/book/add/{author1Id}/{author2Id}")

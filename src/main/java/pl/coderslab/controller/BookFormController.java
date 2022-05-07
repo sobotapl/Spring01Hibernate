@@ -55,6 +55,12 @@ public class BookFormController {
         return "redirect:/bookForm/all";
     }
 
+    @PostMapping("delete")
+    public String deleteBookAccept(@ModelAttribute("book") Book book) {
+        bookDao.delete(book);
+        return "redirect: all";
+    }
+
 
     @GetMapping("all")
     public String showAllBooks(Model model){
