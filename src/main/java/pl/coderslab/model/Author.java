@@ -1,7 +1,10 @@
 package pl.coderslab.model;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.pl.PESEL;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +27,19 @@ public class Author {
     @Column(name = "last_name")
     private String  lastName;
 
+    @NotNull
     @ManyToMany
     @JoinTable(name = "author_books",
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     private List<Book> books = new ArrayList<>();
+
+    @PESEL
+    private int pesel;
+
+    @Email
+    private String email;
+
 
 
 
