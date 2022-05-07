@@ -21,7 +21,7 @@ public class BookController {
     private final BookDao bookDao;
     private final PublisherDao publisherdao;
     private final AuthorDao authorDao;
-    private final BookRepository bookRepository;
+
 
 
     @RequestMapping("/book/add/{author1Id}/{author2Id}")
