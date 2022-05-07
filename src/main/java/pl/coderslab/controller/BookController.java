@@ -10,7 +10,6 @@ import pl.coderslab.dao.PublisherDao;
 import pl.coderslab.model.Author;
 import pl.coderslab.model.Book;
 import pl.coderslab.model.Publisher;
-
 import java.util.List;
 
 @Controller

@@ -1,6 +1,5 @@
 package pl.coderslab.dao;
 
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.model.Author;
@@ -41,6 +40,7 @@ public class PublisherDao {
                 .createQuery("SELECT p FROM Publisher p")
                 .getResultList();
     }
+
 
 }
 

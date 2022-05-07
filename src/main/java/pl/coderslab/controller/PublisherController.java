@@ -14,7 +14,6 @@ public class PublisherController {
 
 
     private final PublisherDao publisherDao;
-
     public PublisherController(PublisherDao publisherDao) {
         this.publisherDao = publisherDao;
     }

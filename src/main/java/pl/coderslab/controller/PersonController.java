@@ -12,21 +12,21 @@ import pl.coderslab.model.Person;
 @Controller
 @RequiredArgsConstructor
 public class PersonController {
+
    private final PersonDao personDao;
 
-   @GetMapping("person")
+   @GetMapping("/person")
    public String personForm(Model model){
       model.addAttribute("person", new Person());
        return "personForm";
    }
 
 
-   @PostMapping("person")
+   @PostMapping("/person")
    @ResponseBody
     public String handlePersonForm(@ModelAttribute("person") Person person){
        log.info("New Person {}", person);
        personDao.save(person);
-
        return "OK";
    }
    

@@ -4,7 +4,6 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.model.Author;
 import pl.coderslab.model.Book;
 import pl.coderslab.model.Publisher;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -33,9 +32,9 @@ public class BookDao {
                 book : entityManager.merge(book));
     }
 
-    public List<Book> findAll(){
+    public List<Book> findAll() {
         return entityManager
-                .createQuery("SELECT b FROM Book b")
+                .createQuery("SELECT b FROM Book b LEFT JOIN FETCH b.authors")
                 .getResultList();
     }
 

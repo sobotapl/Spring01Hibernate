@@ -29,8 +29,7 @@ public class StudentController {
     @ResponseBody
     public String handleStudentForm(@ModelAttribute("student") Student student){
         log.info("New Person {}", student);
-
-        return "OK";
+        return student.toString();
     }
 
 

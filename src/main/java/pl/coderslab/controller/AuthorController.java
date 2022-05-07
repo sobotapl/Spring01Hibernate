@@ -11,7 +11,7 @@ import pl.coderslab.model.Book;
 @Controller
 public class AuthorController {
 
-    private final AuthorDao authorDao;
+    AuthorDao authorDao;
 
     public AuthorController(AuthorDao authorDao) {
         this.authorDao = authorDao;
