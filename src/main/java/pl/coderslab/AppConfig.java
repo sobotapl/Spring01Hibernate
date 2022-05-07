@@ -26,7 +26,7 @@ import java.util.Locale;
 @EnableWebMvc
 @ComponentScan(basePackages = "pl.coderslab")
 @EnableTransactionManagement
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = "pl.coderslab.repository")
 public class AppConfig implements WebMvcConfigurer {
 
     @Bean
