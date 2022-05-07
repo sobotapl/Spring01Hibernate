@@ -1,12 +1,14 @@
 package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.dao.AuthorDao;
 import pl.coderslab.dao.BookDao;
 import pl.coderslab.model.Author;
 import pl.coderslab.model.Book;
+
+import javax.validation.Valid;
 
 @Controller
 public class AuthorController {
@@ -27,6 +29,28 @@ public class AuthorController {
         return "Id Autora:"
                 + author.getId();
     }
+
+    @PostMapping("/authorAdd")
+    public String saveNewBook(@ModelAttribute("author") @Valid Author author, BindingResult result){
+        if(result.hasErrors()){
+            return "author-add";
+        }
+        authorDao.save(author);
+        return "redirect:/authorAll";
+    }
+
+    @GetMapping("/authorAdd")
+    public String addNewBook(Model model){
+        model.addAttribute("author", new Author());
+        return "author-add";
+    }
+
+    @GetMapping("/authorAll")
+    public String showAllAuthors(Model model){
+        model.addAttribute("author", authorDao.findAll());
+        return "author-all";
+    }
+
 
     @RequestMapping("/author/update/{id}/{name}")
     @ResponseBody

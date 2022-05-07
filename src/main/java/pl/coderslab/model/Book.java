@@ -28,7 +28,7 @@ public class Book {
     @Column(name = "title")
     private String title;
 
-    @Range(min =1, max = 10)
+    @Range(min =1, max = 10, message ="Pole musi byc wieksze od 10")
     private Integer rating;
 
     @Size(min = 600)

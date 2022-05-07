@@ -32,8 +32,6 @@ public class ValidationController {
             model.addAttribute("result", result);
         }
         return "validation";
-
-
     }
 
 }

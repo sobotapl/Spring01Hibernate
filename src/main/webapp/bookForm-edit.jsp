@@ -7,19 +7,25 @@
 </head>
 <body>
 
-<form:form method="post" action="/bookForm/edit" modelAttribute="book">
-    Title: <form:input path="title" value="${b.title}"/></br>
-    Rating:<form:input path="rating" value="${b.raiting}"/></br>
-    Description:<form:input path="description" value="${b.description}"/></br>
-    <form:hidden path="id" value="${b.id}"/>
+<form:form method="POST" action="/bookForm/edit" modelAttribute="book">
+    <form:hidden path="id" value="${book.id}"></form:hidden>
+
+    Title: <form:input path="title" value="${book.title}"/> </br>
+    <form:errors path="title"/></br>
+
+    Rating: <form:input path="rating" value="${book.rating}"/> </br>
+    <form:errors path="rating"/></br>
+
+    Description: <form:input path="description" value="${book.description}"/> </br>
+    <form:errors path="description"/></br>
+
+    Pages: <form:input path="pages" value="${book.pages}"/> </br>
+    <form:errors path="description"/></br>
 
     Publishers:
-    <form:select path="publisher.id" itemValue="id" itemLabel="name" items="${publishers}"/></br>
-
+    <form:select path="publisher.id" itemValue="id"
+                 itemLabel="name" items="${publishers}"/> </br>
     <input type="submit">
-
-
-
 </form:form>
 
 </body>

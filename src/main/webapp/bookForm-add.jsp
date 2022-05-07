@@ -14,18 +14,26 @@
 </head>
 <body>
 
-<form:form method="post" action="/bookForm/add" modelAttribute="book">
-    Title: <form:input path="title"/></br>
-    Rating:<form:input path="rating"/></br>
-    Description:<form:input path="description"/></br>
+
+
+<form:form method="POST" action="/bookForm/add" modelAttribute="book">
+    Title: <form:input path="title"/> </br>
+    <form:errors path="title"/></br>
+
+    Rating: <form:input path="rating"/> </br>
+    <form:errors path="rating"/></br>
+
+    Description: <form:input path="description"/> </br>
+    <form:errors path="description"/></br>
 
     Publishers:
-    <form:select path="publisher.id" itemValue="id" itemLabel="name" items="${publishers}"/></br>
+    <form:select path="publisher.id" itemValue="id"
+                 itemLabel="name" items="${publishers}"/> </br>
+
+    <form:select path="authors" itemValue="id"
+                 itemLabel="fullName" items="${authors}"/> </br>
 
     <input type="submit">
-
-
-
 </form:form>
 
 </body>
