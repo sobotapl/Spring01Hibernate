@@ -32,7 +32,6 @@ public class SpringDataBookController {
     public void findByNip(){
         Optional<Publisher> pb = publisherRepository.findByNip("0");
         log.info("{}", pb.get().getNip());
-
     }
 
 
